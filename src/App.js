@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { fetchTables } from './redux/tablesReducer';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { Container } from 'react-bootstrap';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/pages/Home/Home';
+import NotFound from './components/pages/NotFound/NotFound'
+import Header from './components/views/Header/Header';
+import SingleTable from './components/pages/SingleTable/SingleTable';
+import Footer from './components/views/Footer/Footer';
+
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => dispatch(fetchTables()), [dispatch]);
+
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/table/:id" element={<SingleTable />}></Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </Container>
   );
 }
 
