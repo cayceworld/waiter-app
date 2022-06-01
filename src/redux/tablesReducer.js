@@ -2,7 +2,7 @@ import { API_URL } from "../config";
 
 //selectors
 export const getAllTables = ({ tables }) => tables;
-export const getTableById = ({ tables }, tableId) => 
+export const getTableById = ({ tables }, tableId) =>
   tables.find(table => table.id === tableId);
 export const getStatuses = state => state.statuses;
 
@@ -24,11 +24,11 @@ export const fetchTables = () => {
   }
 };
 export const editTableRequest = (editedTable) => {
-  console.log("editedTable",editedTable);
+  console.log("editedTable", editedTable);
   console.log("editTableRequest")
   return (dispatch) => {
     const options = {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
