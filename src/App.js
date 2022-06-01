@@ -15,8 +15,6 @@ function App() {
 
   useEffect(() => dispatch(fetchTables()), [dispatch]);
 
-  
-  
   return (
     <Container>
       <Header />
