@@ -4,7 +4,7 @@ A restaurant table management app built with React, Redux, and JSON Server. It a
 
 ## Preview
 
-![App Screenshot](./public/screenshot.png) <!-- Замінити, якщо потрібно -->
+![App Screenshot](./public/screenshot.png) 
 
 ## Features
 
